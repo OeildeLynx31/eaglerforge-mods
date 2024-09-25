@@ -1,7 +1,9 @@
-ModAPI.meta.title("MobLife viewer");
-ModAPI.meta.credits("By Oeildelynx");
-ModAPI.meta.icon("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAMxJREFUWEftmFEOgzAMQ9tdYbv/CbcrUITEBzFVPbcMMWR+kzTmYbWhOfGnkJQMcTU/lONitd5qAzXfgpB686vUggF5yc+mhXL5hLian1IKGiwIif4FobZnpnf00OPFdy4hA4ktHrKgLcAbEBL80JOqE+rpItRYEINlQibECLB4zUNYI81DrOFuOoP56fDT3oLYSHoGoUM9xSZE6Q9gTR4yuQUxD/2CkOQpVUCPhyyI2eDyhJoC8WxS3/ab+yG2Jt4HDa05VFzbOG9HaAatZpAZQF8utQAAAABJRU5ErkJggg==");
-ModAPI.meta.description("Mod to see the mobs life in real time.");
+if (ModAPI.meta) {
+    ModAPI.meta.title("MobLife viewer");
+    ModAPI.meta.credits("By Oeildelynx");
+    ModAPI.meta.icon("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAMxJREFUWEftmFEOgzAMQ9tdYbv/CbcrUITEBzFVPbcMMWR+kzTmYbWhOfGnkJQMcTU/lONitd5qAzXfgpB686vUggF5yc+mhXL5hLian1IKGiwIif4FobZnpnf00OPFdy4hA4ktHrKgLcAbEBL80JOqE+rpItRYEINlQibECLB4zUNYI81DrOFuOoP56fDT3oLYSHoGoUM9xSZE6Q9gTR4yuQUxD/2CkOQpVUCPhyyI2eDyhJoC8WxS3/ab+yG2Jt4HDa05VFzbOG9HaAatZpAZQF8utQAAAABJRU5ErkJggg==");
+    ModAPI.meta.description("Mod to see the mobs life in real time.");
+}
 
 ModAPI.addEventListener("update", () => {
     let list = ModAPI.mcinstance.$theWorld.$entityList.$toArray0().data;
