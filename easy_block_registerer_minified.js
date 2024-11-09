@@ -6,13 +6,3 @@ function registerBlockClientSide(){var creativeBlockTab=ModAPI.reflect.getClassB
 function registerBlockServerSide(){function fixupBlockIds(){var blockRegistry=ModAPI.util.wrap(ModAPI.reflect.getClassById("net.minecraft.block.Block").staticVariables.blockRegistry).getCorrective();var BLOCK_STATE_IDS=ModAPI.util.wrap(ModAPI.reflect.getClassById("net.minecraft.block.Block").staticVariables.BLOCK_STATE_IDS).getCorrective();blockRegistry.registryObjects.hashTableKToV.forEach(entry=>{if(entry){var block=entry.value;var validStates=block.getBlockState().getValidStates();var stateArray=validStates.array||[validStates.element];stateArray.forEach(iblockstate=>{var i=blockRegistry.getIDForObject(block.getRef())<<4|block.getMetaFromState(iblockstate.getRef());BLOCK_STATE_IDS.put(iblockstate.getRef(),i)})}})}
 var creativeBlockTab=ModAPI.reflect.getClassById("net.minecraft.creativetab.CreativeTabs").staticVariables.tabBlock;var blockClass=ModAPI.reflect.getClassById("net.minecraft.block.Block");var itemClass=ModAPI.reflect.getClassById("net.minecraft.item.Item");var constructor=blockClass.constructors.find(x=>x.length===1);ModAPI.addEventListener("bootstrap",()=>{var new_block=constructor(ModAPI.materials.rock.getRef()).$setHardness(-1.0).$setStepSound(blockClass.staticVariables.soundTypeGravel).$setUnlocalizedName(ModAPI.util.str(blockName)).$setCreativeTab(creativeBlockTab);customFunction(new_block);blockClass.staticMethods.registerBlock0.method(blockID,ModAPI.util.str(blockName),new_block);itemClass.staticMethods.registerItemBlock0.method(new_block);fixupBlockIds()})}
 registerBlockClientSide();fixupBlockIds();ModAPI.dedicatedServer.appendCode(`var blockName = "${blockName}";\nvar blockID = ${blockID};\nvar customFunction = ${String(customFunction)};`);ModAPI.dedicatedServer.appendCode(registerBlockServerSide)}
-
-registerBlock(
-    "Block of netherite", // the block name
-    "netheriteBlock", // the block ID, must be a string with only letters and numbers, no space
-    198, // must be an integer number between 198 and 4098 included
-    "https://assets.mcasset.cloud/1.21.3/assets/minecraft/textures/block/netherite_block.png", // a URL or a base64 image
-    function(block) {
-        block.$blockHardness = 0.5; // you can edit the block generated as you want
-    }
-)
