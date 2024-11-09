@@ -1,3 +1,6 @@
+ModAPI.meta.title("Easy block registerer");
+ModAPI.meta.description("Add your custom blocks to the game easily");
+
 function registerBlock(blockText, blockName, blockID, textureSrc, customFunction) {
     function fixupBlockIds() {
         var blockRegistry = ModAPI.util.wrap(ModAPI.reflect.getClassById("net.minecraft.block.Block").staticVariables.blockRegistry).getCorrective();
